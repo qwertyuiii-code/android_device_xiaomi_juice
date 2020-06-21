@@ -67,6 +67,9 @@ TARGET_USES_HWC2 := true
 TARGET_USES_ION := true
 TARGET_USES_NEW_ION_API := true
 
+# Gestures
+TARGET_TAP_TO_WAKE_NODE := "/sys/touchpanel/double_tap"
+
 # HIDL
 DEVICE_MANIFEST_FILE += \
     $(DEVICE_PATH)/configs/vintf/manifest.xml

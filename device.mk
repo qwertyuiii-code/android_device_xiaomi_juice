@@ -261,6 +261,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     JuiceFrameworks \
     JuiceSystemUI \
+    AOSPAJuiceFrameworks \
     FrameworksResTarget \
     WifiResTarget
 
