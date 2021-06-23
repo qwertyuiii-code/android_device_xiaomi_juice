@@ -201,9 +201,19 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.incremental.enable=1
 
 # Init
+PRODUCT_COPY_FILES += $(LOCAL_PATH)/init/fstab.qcom:$(TARGET_COPY_OUT_RAMDISK)/fstab.qcom
+
 PRODUCT_PACKAGES += \
+    fstab.qcom \
+    init.juice.rc \
+    init.xiaomi.rc \
+    init.xiaomi.display.rc \
+    init.xiaomi.fingerprint.rc \
+    init.xiaomi.camera.rc \
+    init.mi.usb.sh \
     init.qti.dcvs.sh \
-    init.target.rc
+    init.target.rc \
+    ueventd.juice.rc
 
 # Keymaster
 PRODUCT_PROPERTY_OVERRIDES += \
