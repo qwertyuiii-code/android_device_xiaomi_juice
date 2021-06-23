@@ -78,3 +78,14 @@ sh_binary {
     src: "init.qti.dcvs.sh",
     vendor: true,
 }
+
+cc_library_static {
+    name: "libinit_juice",
+    recovery_available: true,
+    shared_libs: ["libbase"],
+    srcs: ["init_juice.cpp"],
+    include_dirs: [
+        "system/core/base/include",
+        "system/core/init"
+    ]
+}

@@ -74,6 +74,9 @@ DEVICE_MANIFEST_FILE += \
 DEVICE_MATRIX_FILE += \
     device/qcom/common/compatibility_matrix.xml
 
+# Init
+TARGET_INIT_VENDOR_LIB := //$(DEVICE_PATH):libinit_juice
+
 # Kernel
 BOARD_KERNEL_CMDLINE := \
     console=ttyMSM0,115200n8 \
