@@ -253,6 +253,7 @@ PRODUCT_PACKAGES += \
 # Overlays
 PRODUCT_PACKAGES += \
     JuiceFrameworks \
+    JuiceSystemUI \
     FrameworksResTarget \
     WifiResTarget
 
