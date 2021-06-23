@@ -19,6 +19,42 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.device_id_attestation.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.device_id_attestation.xml
 
+# Audio
+PRODUCT_ODM_PROPERTIES += \
+    aaudio.mmap_policy=1 \
+    ro.vendor.audio.sdk.fluencetype=fluence
+
+PRODUCT_SYSTEM_PROPERTIES += \
+    ro.config.media_vol_default=8 \
+    ro.config.media_vol_steps=25 \
+    ro.config.vc_call_vol_default=10 \
+    ro.config.vc_call_vol_steps=11
+
+PRODUCT_VENDOR_PROPERTIES += \
+    ro.audio.monitorRotation=true \
+    ro.vendor.audio.misound.bluetooth.enable=true \
+    ro.vendor.audio.scenario.support=true \
+    ro.vendor.audio.soundfx.type=mi \
+    ro.vendor.audio.soundfx.usb=true \
+    ro.vendor.audio.us.proximity=true
+
+PRODUCT_VENDOR_PROPERTIES += \
+    ro.vendor.audio.soundtrigger.appdefine.cnn.level=31 \
+    ro.vendor.audio.soundtrigger.appdefine.gmm.level=55 \
+    ro.vendor.audio.soundtrigger.appdefine.gmm.user.level=50 \
+    ro.vendor.audio.soundtrigger.appdefine.vop.level=10 \
+    ro.vendor.audio.soundtrigger.lowpower=true \
+    ro.vendor.audio.soundtrigger.training.level=50 \
+    ro.vendor.audio.soundtrigger.xanzn.cnn.level=70 \
+    ro.vendor.audio.soundtrigger.xanzn.gmm.level=45 \
+    ro.vendor.audio.soundtrigger.xanzn.gmm.user.level=30 \
+    ro.vendor.audio.soundtrigger.xanzn.vop.level=10 \
+    ro.vendor.audio.soundtrigger.xatx.cnn.level=27 \
+    ro.vendor.audio.soundtrigger.xatx.gmm.level=50 \
+    ro.vendor.audio.soundtrigger.xatx.gmm.user.level=40 \
+    ro.vendor.audio.soundtrigger.xatx.vop.level=10 \
+    ro.vendor.audio.soundtrigger=sva
+
 # Bluetooth
 PRODUCT_PACKAGES += \
     android.hardware.bluetooth.audio@2.0-impl \
@@ -44,6 +80,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vendor.qcom.bluetooth.soc=cherokee
 
 # Camera
+PRODUCT_PROPERTY_OVERRIDES += \
+    camera.disable_zsl_mode=true
+
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.camera.flash-autofocus.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.camera.flash-autofocus.xml \
     frameworks/native/data/etc/android.hardware.camera.front.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.camera.front.xml \
@@ -59,8 +98,10 @@ PRODUCT_PACKAGES += \
     vendor.qti.hardware.camera.postproc@1.0.vendor
 
 # Charging
-PRODUCT_SYSTEM_EXT_PROPERTIES += \
-    ro.charger.enable_suspend=1
+PRODUCT_PRODUCT_PROPERTIES += \
+    ro.charger.enable_suspend=true \
+    persist.vendor.quick.charge=1 \
+    ro.charger.disable_init_blank=true
 
 # Config Store
 PRODUCT_PACKAGES += \
@@ -165,10 +206,26 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.crypto.volume.filenames_mode="aes-256-cts" \
     ro.hardware.keystore_desede=true
 
-# Keymaster
 PRODUCT_PACKAGES += \
     android.hardware.keymaster@4.0.vendor \
     android.hardware.keymaster@4.1.vendor
+
+# Media
+PRODUCT_ODM_PROPERTIES += \
+    media.settings.xml=/vendor/etc/media_profiles_vendor.xml \
+    vendor.mm.enable.qcom_parser=63963135
+
+PRODUCT_SYSTEM_EXT_PROPERTIES += \
+    debug.stagefright.omx_default_rank=0 \
+    media.aac_51_output_enabled=true \
+    media.stagefright.enable-aac=true \
+    media.stagefright.enable-fma2dp=true \
+    media.stagefright.enable-http=true \
+    media.stagefright.enable-player=true \
+    media.stagefright.enable-qcp=true \
+    media.stagefright.enable-scan=true \
+    mmp.enable.3g2=true \
+    persist.mm.enable.prefetch=true
 
 # Namespaces
 PRODUCT_SOONG_NAMESPACES += \
