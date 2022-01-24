@@ -342,6 +342,11 @@ PRODUCT_PACKAGES += \
 # Shipping API
 PRODUCT_SHIPPING_API_LEVEL := 29
 
+# SOC Properties
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.soc.manufacturer=QTI \
+    ro.soc.model=SM6115
+
 # Vendor Service Manager
 PRODUCT_PACKAGES += \
     vndservicemanager
