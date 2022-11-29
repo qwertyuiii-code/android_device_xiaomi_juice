@@ -1,12 +1,8 @@
 #!/bin/bash
 #
-<<<<<<< HEAD
 # Copyright (C) 2016 The CyanogenMod Project
 # Copyright (C) 2017-2020 The LineageOS Project
 # Copyright (C) 2021 Paranoid Android
-=======
-# Copyright (C) 2022 The LineageOS Project
->>>>>>> 0b28480 (juice: proprietary: Pin modified vendor.qti.hardware.camera.postproc@1.0-service-impl.so)
 #
 # SPDX-License-Identifier: Apache-2.0
 #
